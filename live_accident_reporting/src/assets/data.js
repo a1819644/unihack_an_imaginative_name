@@ -45,20 +45,53 @@ export const reports = [
     {location: { lng: 138.622772, lat: -34.915845 }},
     {location: { lng: 138.623024, lat: -34.915607 }},
     {location: { lng: 138.622901, lat: -34.915678 }},
-
     {location: { lng: 138.622735, lat: -34.915854 }},
     {location: { lng: 138.622799, lat: -34.916043 }},
     {location: { lng: 138.623212, lat: -34.915634 }},
-    {location: { lng: 138.62421, lat: -34.91559 }},
+    {location: { lng: 138.62421,  lat: -34.91559 }},
     {location: { lng: 138.626849, lat: -34.905454 }},
     {location: { lng: 138.640131, lat: -34.904961 }},
    
 
+    {location: { lng: 138.590714, lat: -34.964067 }},
+    {location: { lng: 138.590714, lat: -34.966001 }},
+    {location: { lng: 138.581702, lat: -34.966388 }},
+    {location: { lng: 138.57314,  lat: -34.993041 }},
+    {location: { lng: 138.557176, lat: -34.995854 }},
+    {location: { lng: 138.539323, lat: -34.995994 }},
+    {location: { lng: 138.522157, lat: -35.002463 }},
+    {location: { lng: 138.528573, lat: -35.018772 }},
+    {location: { lng: 138.539216, lat: -34.995502 }},
+    {location: { lng: 138.530118, lat: -34.996697 }},
+    {location: { lng: 138.555567, lat: -35.029737 }},
+    {location: { lng: 138.546983, lat: -35.081168 }},
+    {location: { lng: 138.573076, lat: -35.05110 }},
+    {location: { lng: 138.583376, lat: -35.07302 }},
+    {location: { lng: 138.560716, lat: -35.113752 }},
+    {location: { lng: 138.499862, lat: -35.144639 }},
+    {location: { lng: 138.487889, lat: -35.142814 }},
 
 
-
-
-
+    {location: { lng: 138.607172, lat: -34.9545 }},
+    {location: { lng: 138.554987, lat: -34.904115 }},
+    {location: { lng: 138.504862, lat: -34.906368 }},
+    {location: { lng: 138.520998, lat: -34.883277 }},
+    {location: { lng: 138.543228, lat: -34.872469 }},
+    {location: { lng: 138.533401, lat: -34.866131 }},
+    {location: { lng: 138.564278, lat: -34.849474 }},
+    {location: { lng: 138.50042, lat: -34.816785 }},
+    {location: { lng: 138.617837, lat: -34.735568 }},
+    {location: { lng: 138.589856, lat: -34.731901 }},
+    {location: { lng: 138.700431, lat: -34.805458 }},
+    {location: { lng: 138.708328, lat: -34.795309 }},
+    {location: { lng: 138.676399, lat: -34.818143 }},
+    {location: { lng: 138.691934, lat: -34.885338 }},
+    {location: { lng: 138.691247, lat: -34.914622 }},
+    {location: { lng: 138.656764, lat: -34.906175 }},
+    {location: { lng: 138.746715, lat: -34.888717 }},
+    {location: { lng: 138.718563, lat: -34.838574 }},
+    {location: { lng: 138.673931, lat: -34.888154 }},
+  
 
 
 
