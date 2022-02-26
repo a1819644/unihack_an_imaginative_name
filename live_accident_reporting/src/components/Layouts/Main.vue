@@ -1,6 +1,8 @@
 <template>
-  <Nav />
-  <Body />
+  <div class="flex flex-col h-full w-full">
+    <Nav />
+    <Body />
+  </div>
 </template>
 
 <script>
