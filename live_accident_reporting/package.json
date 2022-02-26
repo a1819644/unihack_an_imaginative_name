@@ -10,7 +10,8 @@
   "dependencies": {
     "chart.js": "^2.9.4",
     "vue": "^3.2.25",
-    "vue-chartjs": "^3.5.1"
+    "vue-chartjs": "^3.5.1",
+    "vue3-google-map": "^0.8.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.0",
