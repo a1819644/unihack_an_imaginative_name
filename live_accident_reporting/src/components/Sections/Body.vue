@@ -44,6 +44,8 @@
 
 <script>
 import Modal from "../Modal.vue";
+import PieChart from "../PieChart.vue";
+import Map from "../Map/Map.vue";
 
 export default {
   name: "BodySection",

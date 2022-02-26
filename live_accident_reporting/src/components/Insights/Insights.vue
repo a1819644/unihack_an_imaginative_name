@@ -1,7 +1,13 @@
-<template> </template>
+<template>
+  <div class="w-96"><PieChart></PieChart></div>
+</template>
 
 <script>
-export default {};
+import PieChart from "../PieChart.vue";
+
+export default {
+  name: "Insights",
+};
 </script>
 
 <style lang="css" scoped></style>
