@@ -30,4 +30,36 @@ export const reports = [
     {location: { lng: 138.616663, lat: -34.921518 }},
     {location: { lng: 138.610569, lat: -34.921043 }},
 
+    {location: { lng: 138.632794, lat: -34.93081 }},
+    {location: { lng: 138.632933, lat: -34.930845 }},
+    {location: { lng: 138.632785, lat: -34.929546 }},
+    {location: { lng: 138.65102, lat: -34.926415 }},
+    {location: { lng: 138.651068, lat: -34.926538 }},
+    {location: { lng: 138.610629, lat: -34.920958 }},
+    {location: { lng: 138.607662, lat: -34.921046 }},
+    {location: { lng: 138.62305, lat: -34.921582 }},
+    {location: { lng: 138.62276, lat: -34.92174 }},
+    {location: { lng: 138.623018, lat: -34.915565 }},
+    {location: { lng: 138.62275, lat: -34.915846 }},
+    {location: { lng: 138.631473, lat: -34.915423 }},
+    {location: { lng: 138.622772, lat: -34.915845 }},
+    {location: { lng: 138.623024, lat: -34.915607 }},
+    {location: { lng: 138.622901, lat: -34.915678 }},
+
+    {location: { lng: 138.622735, lat: -34.915854 }},
+    {location: { lng: 138.622799, lat: -34.916043 }},
+    {location: { lng: 138.623212, lat: -34.915634 }},
+    {location: { lng: 138.62421, lat: -34.91559 }},
+    {location: { lng: 138.626849, lat: -34.905454 }},
+    {location: { lng: 138.640131, lat: -34.904961 }},
+   
+
+
+
+
+
+
+
+
+
 ];
