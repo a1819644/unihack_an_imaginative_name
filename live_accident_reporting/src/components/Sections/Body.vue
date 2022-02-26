@@ -32,7 +32,7 @@
     </div>
 
     <div class="flex flex-grow">
-      <Map />
+      <router-view> </router-view>
     </div>
 
     <Teleport to="body">
@@ -44,13 +44,11 @@
 
 <script>
 import Modal from "../Modal.vue";
-import Map from "../Map/Map.vue";
 
 export default {
   name: "BodySection",
   components: {
     Modal,
-    Map,
   },
   data() {
     return {
