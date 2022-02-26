@@ -9,8 +9,8 @@
 
 <script>
 export default {
-  name: "Nav",
-};
+  name: "Nav"
+}
 </script>
 
 <style lang="css" scoped></style>
