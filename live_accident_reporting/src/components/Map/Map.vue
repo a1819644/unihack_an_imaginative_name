@@ -37,7 +37,7 @@
                 Type: {{ report.type }}
               </p>
               <p class="text-base text-gray-800 text-left">
-                Vehicles: {{ (report.vehicles[0], report.vehicles[1]) }}
+                Vehicles: {{ report.vehicles[0] }}, {{ report.vehicles[1] }}
               </p>
             </div>
           </GMapInfoWindow>
