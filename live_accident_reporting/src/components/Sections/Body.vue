@@ -3,14 +3,14 @@
     <div class="flex flex-col justify-stretch px-1">
       <router-link
         :to="{ name: 'map' }"
-        class="flex py-2 px-4 border-b border-t text-base font-medium text-red-600 border-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-400 hover:text-gray-200"
+        class="flex py-2 px-4 border-b border-t text-base font-medium text-indigo-600 border-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-400 hover:text-gray-200"
       >
         Hotspots (Map)
       </router-link>
 
       <router-link
         :to="{ name: 'insights' }"
-        class="flex py-2 px-4 border-b text-base font-medium text-red-600 border-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-400 hover:text-gray-200"
+        class="flex py-2 px-4 border-b text-base font-medium text-indigo-600 border-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-400 hover:text-gray-200"
       >
         Insights
       </router-link>
@@ -18,7 +18,7 @@
       <button
         id="show-modal"
         @click="showModal = true"
-        class="flex py-2 px-4 border-b text-base font-medium text-red-600 border-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-400 hover:text-gray-200"
+        class="flex py-2 px-4 border-b text-base font-medium text-indigo-600 border-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-400 hover:text-gray-200"
       >
         Report An Accident
       </button>
