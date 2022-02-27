@@ -9,7 +9,7 @@
                 >Location (latitude/longitude):
               </label>
               <input
-                v-model="data.location"
+                v-model="location"
                 id="location"
                 class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="eg: -34.9186493/138.6055145"
@@ -31,7 +31,7 @@
               name="type"
               id="type"
               class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              v-model="data.selectedType"
+              v-model="selectedType"
             >
               <option value="head-on">Head On</option>
               <option value="side-on">Side On</option>
@@ -46,9 +46,23 @@
               name="type"
               id="type"
               class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              v-model="data.selectedVehicle"
+              v-model="selectedVehicle"
             >
-              <option value="car">Pedestrian</option>
+              <option value="pedestrian">Pedestrian</option>
+              <option value="bicycle">Bicycle</option>
+              <option value="motorcycle">Motorcycle</option>
+              <option value="car">Car</option>
+              <option value="bus">Bus</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="w-full my-2"></div>
+            <select
+              name="type"
+              id="type"
+              class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              v-model="selectedVehicle2"
+            >
+              <option value="pedestrian">Pedestrian</option>
               <option value="bicycle">Bicycle</option>
               <option value="motorcycle">Motorcycle</option>
               <option value="car">Car</option>
@@ -57,19 +71,33 @@
             </select>
           </div>
 
+          <div class="mb-5">
+            <label for="type">Weather:</label>
+            <select
+              name="type"
+              id="type"
+              class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              v-model="weather"
+            >
+              <option value="sunny">Sunny</option>
+              <option value="rainy">Rainy</option>
+              <option value="windy">Windy</option>
+              <option value="snow">Snow</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="mb-5">
+            <label for="type">Comment:</label>
+            <textarea
+              v-model="data.comments"
+              class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            ></textarea>
+          </div>
+
           <div class="flex flex-col my-5">
             <label for="img">Select image:</label>
             <input type="file" id="img" name="img" accept="image/*" multiple />
-          </div>
-
-          <div>
-            <label for="location" required>comments or recommendations: </label>
-            <textarea
-              v-model="data.comments"
-              id="location"
-              class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder=""
-            ></textarea>
           </div>
         </div>
         <div>
@@ -101,6 +129,8 @@ export default {
         selectedType: "head-on",
         selectedVehicle: "pedestrian",
         comments: "",
+        selectedVehicle2: "pedestrian",
+        weather: "sunny",
       },
     };
   },
@@ -115,7 +145,9 @@ export default {
       let payload = {
         location: { lat: parseFloat(temp[0]), lng: parseFloat(temp[1]) },
         type: this.data.selectedType,
-        vehicles: this.data.SelectedVehicles,
+        vehicles: [this.data.selectedVehicle, this.data.selectedVehicle2],
+        weather: this.data.weather,
+        comments: this.data.comments,
       };
 
       this.$store.commit("addReport", payload);
