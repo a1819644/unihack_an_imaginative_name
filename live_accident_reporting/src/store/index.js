@@ -5,6 +5,9 @@ const store = createStore({
     reports: [{ location: { lng: 138.572322, lat: -34.952511 } }],
   }),
   mutations: {
+    setReports(state, payload) {
+      state.reports = [...payload];
+    },
     addReport(state, payload) {
       state.reports = [...state.reports, payload];
     },

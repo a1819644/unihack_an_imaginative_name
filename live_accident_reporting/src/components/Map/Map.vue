@@ -36,6 +36,7 @@
 <script>
 import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
+import * as mockData from "../../assets/data.js";
 
 export default {
   computed: {
@@ -45,6 +46,12 @@ export default {
     showDetails() {
       console.log("details");
     },
+    updateReports() {
+      this.$store.commit("setReports", mockData.reports);
+    },
+  },
+  mounted() {
+    this.updateReports();
   },
 };
 </script>
