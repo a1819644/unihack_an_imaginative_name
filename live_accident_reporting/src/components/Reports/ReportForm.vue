@@ -156,6 +156,7 @@ export default {
         vehicles: [this.data.selectedVehicle, this.data.selectedVehicle2],
         weather: this.data.weather,
         comments: this.data.comments,
+        isPotentialDanger: false
       };
 
       this.$store.commit("addReport", payload);
