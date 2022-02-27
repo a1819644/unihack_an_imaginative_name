@@ -6,6 +6,7 @@
 import { defineComponent } from "vue";
 import { PieChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
+import { reports } from "../assets/data";
 
 Chart.register(...registerables);
 
@@ -13,17 +14,21 @@ export default defineComponent({
   name: "Home",
   components: { PieChart },
   setup() {
+    const headOn = reports.filter((item)=> {return item.type == "head-on"});
+    const sideOn = reports.filter((item)=> {return item.type == "side-on"});
+    const rearEnd = reports.filter((item)=> {return item.type == "rear-end"});
+    const other = reports.filter((item)=> {return item.type == "other"});
     const testData = {
-      labels: ["Paris", "Nîmes", "Toulon", "Perpignan", "Autre"],
+      labels: ["Head on", "Side on", "Rear end", "Others"],
       datasets: [
         {
-          data: [30, 40, 60, 70, 5],
+          data: [headOn.length, sideOn.length, rearEnd.length, other.length],
           backgroundColor: [
-            "#77CEFF",
-            "#0079AF",
-            "#123E6B",
-            "#97B0C4",
-            "#A5C8ED",
+            "#50b4d8",
+            "#9eddef",
+            "#f7e5b7",
+            "#d7e2ea",
+            "#96b3c2",
           ],
         },
       ],
