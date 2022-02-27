@@ -1,7 +1,13 @@
 <template>
-  <div class="w-96">
-    <PieChart />
-    <BarChart />
+  <div class="w-full inline-block flex pr-20">
+    <div class="w-1/2">
+    <label class="font-bold">Type of Accident</label>
+      <PieChart />
+    </div>
+    <div class="w-1/2">
+    <label class="font-bold">Vehicles analysis</label>
+      <BarChart />
+    </div>
   </div>
 </template>
 
