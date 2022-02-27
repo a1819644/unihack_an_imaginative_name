@@ -5,17 +5,23 @@
         <div class="">
           <div class="mb-5 flex items-end">
             <div>
-              <label for="location" required>Location/Address: </label>
+              <label for="location" required
+                >Location (latitude/longitude):
+              </label>
               <input
                 v-model="data.location"
                 id="location"
                 class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Location"
+                placeholder="eg: -34.9186493/138.6055145"
               />
             </div>
             <div>
-              <button type="button" class="btn-primary" @click.prevent="">
-                use my location
+              <button
+                type="button"
+                class="btn-primary"
+                @click.prevent="getLocation"
+              >
+                {{ locating ? "please wait ..." : "use my location" }}
               </button>
             </div>
           </div>
@@ -55,6 +61,16 @@
             <label for="img">Select image:</label>
             <input type="file" id="img" name="img" accept="image/*" multiple />
           </div>
+
+          <div>
+            <label for="location" required>comments or recommendations: </label>
+            <textarea
+              v-model="data.comments"
+              id="location"
+              class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              placeholder=""
+            ></textarea>
+          </div>
         </div>
         <div>
           <button type="submit" class="btn-primary mt-4 mb-2">
@@ -79,17 +95,52 @@ export default {
   name: "ReportForm",
   data() {
     return {
+      locating: false,
       data: {
         location: null,
         selectedType: "head-on",
-        selectedVehicle: "car",
+        selectedVehicle: "pedestrian",
+        comments: "",
       },
     };
   },
   methods: {
     handleSubmit(e) {
       e.preventDefault();
+
+      if (!this.data.location) return;
+
+      let temp = this.data.location.split("/");
+
+      let payload = {
+        location: { lat: parseFloat(temp[0]), lng: parseFloat(temp[1]) },
+        type: this.data.selectedType,
+        vehicles: this.data.SelectedVehicles,
+      };
+
+      this.$store.commit("addReport", payload);
       this.$emit("close");
+    },
+    useLocation({ coords }) {
+      this.data.location = `${coords.latitude}/${coords.longitude}`;
+
+      this.locating = false;
+    },
+    useLocationError(error) {
+      console.log(error);
+      this.locating = false;
+    },
+    getLocation() {
+      this.locating = true;
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          this.useLocation,
+          this.useLocationError
+        );
+      } else {
+        console.log("Location feature is not supported by browser");
+      }
     },
   },
 };
