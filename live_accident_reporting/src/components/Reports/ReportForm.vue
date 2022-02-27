@@ -7,7 +7,7 @@
             <div>
               <label for="location" required>Location/Address: </label>
               <input
-                v-model="data.location"
+                v-model="location"
                 id="location"
                 class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Location"
@@ -25,7 +25,7 @@
               name="type"
               id="type"
               class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              v-model="data.selectedType"
+              v-model="selectedType"
             >
               <option value="head-on">Head On</option>
               <option value="side-on">Side On</option>
@@ -40,15 +40,49 @@
               name="type"
               id="type"
               class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              v-model="data.selectedVehicle"
+              v-model="selectedVehicle"
             >
-              <option value="car">Pedestrian</option>
+              <option value="pedestrian">Pedestrian</option>
               <option value="bicycle">Bicycle</option>
               <option value="motorcycle">Motorcycle</option>
               <option value="car">Car</option>
               <option value="bus">Bus</option>
               <option value="other">Other</option>
             </select>
+            <select
+              name="type"
+              id="type"
+              class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              v-model="selectedVehicle2"
+            >
+              <option value="pedestrian">Pedestrian</option>
+              <option value="bicycle">Bicycle</option>
+              <option value="motorcycle">Motorcycle</option>
+              <option value="car">Car</option>
+              <option value="bus">Bus</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="mb-5">
+            <label for="type">Weather:</label>
+            <select
+              name="type"
+              id="type"
+              class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              v-model="weather"
+            >
+              <option value="sunny">Sunny</option>
+              <option value="rainy">Rainy</option>
+              <option value="windy">Windy</option>
+              <option value="snow">Snow</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="mb-5">
+            <label for="type">Comment:</label>
+            <textarea v-model="comment" class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"></textarea>
           </div>
 
           <div class="flex flex-col my-5">
@@ -79,16 +113,23 @@ export default {
   name: "ReportForm",
   data() {
     return {
-      data: {
-        location: null,
-        selectedType: "head-on",
-        selectedVehicle: "car",
-      },
+      report: {},
+      location: null,
+      selectedType: "head-on",
+      selectedVehicle: "car",
+      selectedVehicle2: "pedestrian",
+      weather: "sunny",
+      comment: ""
     };
   },
   methods: {
     handleSubmit(e) {
       e.preventDefault();
+      this.report.vehicles = [this.selectedVehicle, this.selectedVehicle2];
+      this.report.type = this.selectedType;
+      this.report.weather = this.weather;
+      this.report.location = this.location;
+      this.report.comment = this.comment;
       this.$emit("close");
     },
   },
