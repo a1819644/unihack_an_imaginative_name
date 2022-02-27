@@ -2,7 +2,14 @@ import { createStore } from "vuex";
 
 const store = createStore({
   state: () => ({
-    reports: [{ location: { lng: 138.572322, lat: -34.952511 } }],
+    reports: [
+      {
+        location: { lng: 138.572322, lat: -34.952511 },
+        type: "other",
+        weather: "snow",
+        vehicles: ["car", "car"],
+      },
+    ],
   }),
   mutations: {
     setReports(state, payload) {

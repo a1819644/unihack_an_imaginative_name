@@ -4,16 +4,19 @@
       <form @submit.prevent="handleSubmit">
         <div class="">
           <div class="mb-5 flex items-end">
-            <div>
+            <div class="relative">
               <label for="location" required
                 >Location (latitude/longitude):
               </label>
               <input
-                v-model="location"
+                v-model="data.location"
                 id="location"
                 class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="eg: -34.9186493/138.6055145"
               />
+              <p v-if="locationError" class="text-red-400">
+                this field is required
+              </p>
             </div>
             <div>
               <button
@@ -31,7 +34,7 @@
               name="type"
               id="type"
               class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              v-model="selectedType"
+              v-model="data.selectedType"
             >
               <option value="head-on">Head On</option>
               <option value="side-on">Side On</option>
@@ -46,7 +49,7 @@
               name="type"
               id="type"
               class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              v-model="selectedVehicle"
+              v-model="data.selectedVehicle"
             >
               <option value="pedestrian">Pedestrian</option>
               <option value="bicycle">Bicycle</option>
@@ -60,7 +63,7 @@
               name="type"
               id="type"
               class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              v-model="selectedVehicle2"
+              v-model="data.selectedVehicle2"
             >
               <option value="pedestrian">Pedestrian</option>
               <option value="bicycle">Bicycle</option>
@@ -77,7 +80,7 @@
               name="type"
               id="type"
               class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              v-model="weather"
+              v-model="data.weather"
             >
               <option value="sunny">Sunny</option>
               <option value="rainy">Rainy</option>
@@ -88,7 +91,7 @@
           </div>
 
           <div class="mb-5">
-            <label for="type">Comment:</label>
+            <label for="type">Comments:</label>
             <textarea
               v-model="data.comments"
               class="relative w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -124,6 +127,7 @@ export default {
   data() {
     return {
       locating: false,
+      locationError: false,
       data: {
         location: null,
         selectedType: "head-on",
@@ -138,7 +142,11 @@ export default {
     handleSubmit(e) {
       e.preventDefault();
 
-      if (!this.data.location) return;
+      if (!this.data.location) {
+        this.locationError = true;
+        return;
+      }
+      this.locationError = false;
 
       let temp = this.data.location.split("/");
 
