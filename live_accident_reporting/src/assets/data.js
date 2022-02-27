@@ -71,7 +71,6 @@ export const reports = [
     {location: { lng: 138.499862, lat: -35.144639 }, type: "Head-on collision", weather: "sunny", vehicles: ["car", "car"]},
     {location: { lng: 138.487889, lat: -35.142814 }, type: "Head-on collision", weather: "sunny", vehicles: ["car", "car"]},
 
-
     {location: { lng: 138.607172, lat: -34.9545 }, type: "Side-on collision", weather: "rainy", vehicles: ["car", "bicycle"]},
     {location: { lng: 138.554987, lat: -34.904115 }, type: "Side-on collision", weather: "rainy", vehicles: ["car", "bicycle"]},
     {location: { lng: 138.504862, lat: -34.906368 }, type: "Side-on collision", weather: "rainy", vehicles: ["car", "bicycle"]},

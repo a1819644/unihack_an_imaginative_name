@@ -1,30 +1,50 @@
 <template>
-  <div class="m-2 rounded-md overflow-hidden">
-    <GoogleMap
-      api-key="AIzaSyDvJ6XbLxaIR0pN4yBaorBX5bPv_ogaFCE"
-      style="width: 100%; height: 600px;"
-      :center="reports[0].location"
-      :zoom="15"
-    >
-      <Marker
-        v-for="report in reports"
-        :options="{ position: report.location }"
-      />
-    </GoogleMap>
+  <div class="m-2 rounded-md overflow-hidden flex-grow">
+    <GMapMap :center="reports[0].location" :zoom="10" map-type-id="terrain">
+      <GMapCluster
+        :zoomOnClick="true"
+        :styles="[
+          {
+            url: '/spot.png',
+            height: 50,
+            width: 50,
+            textColor: '#800000',
+            textSize: 22,
+          },
+        ]"
+      >
+        <GMapMarker
+          v-for="report in reports"
+          :options="{
+            position: report.location,
+            collisionBehavior: 'REQUIRED',
+          }"
+          :icon="{
+            url: '/spot.png',
+            scaledSize: {
+              width: 15,
+              height: 15,
+            },
+          }"
+          @click="showDetails"
+        />
+      </GMapCluster>
+    </GMapMap>
   </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import { GoogleMap, Marker } from "vue3-google-map";
-import { reports } from "../../assets/data.js";
+import { mapGetters } from "vuex";
 
 export default {
-  components: { GoogleMap, Marker },
-  data() {
-    return {
-      reports: reports,
-    };
+  computed: {
+    ...mapGetters(["reports"]),
+  },
+  methods: {
+    showDetails() {
+      console.log("details");
+    },
   },
 };
 </script>
